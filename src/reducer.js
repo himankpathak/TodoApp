@@ -18,14 +18,16 @@ function mainReducer(state = [], action) {
       return Object.assign({}, state, {
         todos: state.todos.map(todo => {
           if (todo.id === action.index) {
-            console.log("hellozzz", todo.completed);
             return Object.assign({}, todo, {
               completed: !todo.completed
             });
           }
           return todo;
         }),
-        count: [state.count[0] - 1, state.count[1] + 1]
+        count: [
+          state.count[0] + action.payload[0],
+          state.count[1] + action.payload[1]
+        ]
       });
     case REMOVE_TODO:
       var arr = state.todos.filter(todo => todo.id !== action.index);

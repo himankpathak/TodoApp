@@ -16,6 +16,12 @@ const DoneTodo = ({ id, completed, text }) => {
       }}>
       {text}
       <Button
+        icon="arrow up"
+        circular
+        onClick={() => dispatch(toggleTodo(id, [1, -1]))}
+        style={{ marginLeft: "20px" }}
+      />
+      <Button
         icon="cancel"
         circular
         onClick={() => dispatch(removeTodo(id))}

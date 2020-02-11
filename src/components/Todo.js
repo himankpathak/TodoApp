@@ -18,7 +18,7 @@ const Todo = ({ id, completed, text }) => {
       <Button
         icon="check"
         circular
-        onClick={() => dispatch(toggleTodo(id))}
+        onClick={() => dispatch(toggleTodo(id, [-1, 1]))}
         style={{ marginLeft: "20px" }}
       />
     </li>

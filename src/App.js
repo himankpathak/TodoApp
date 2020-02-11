@@ -1,12 +1,25 @@
-import React from "react"
-import "./App.css"
+import React from "react";
+import AddTodo from "./components/AddTodo";
+import { Container, Header, Icon } from "semantic-ui-react";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">Todo App</header>
-    </div>
-  )
-}
+    <Container fluid style={{ padding: "10vw", paddingTop: "5vw" }}>
+      <Header as="h2" icon textAlign="center">
+        <Icon name="code" circular />
+        <Header.Content>Todo App</Header.Content>
+      </Header>
+      <Container
+        fluid
+        style={{
+          textAlign: "center",
+          paddingLeft: "5vw",
+          paddingRight: "5vw"
+        }}>
+        <AddTodo />
+      </Container>
+    </Container>
+  );
+};
 
-export default App
+export default App;

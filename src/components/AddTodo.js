@@ -19,6 +19,12 @@ const AddTodo = ({ dispatch }) => {
         value={task}
         placeholder="Enter a Todo.."
         onChange={e => setTask(e.target.value)}
+        onKeyPress={e => {
+          if (e.key === "Enter") {
+            dispatch(addTodo(task));
+            setTask("");
+          }
+        }}
       />
     </div>
   );

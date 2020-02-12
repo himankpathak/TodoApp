@@ -8,8 +8,8 @@ import mainReducer from "./reducer";
 import "semantic-ui-css/semantic.min.css";
 
 const initialState = {
-  todos: [{ id: 0, text: "test task", completed: true }],
-  count: [0, 1]
+  todos: [],
+  count: [0, 0]
 };
 
 const store = createStore(

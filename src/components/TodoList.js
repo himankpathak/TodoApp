@@ -28,22 +28,23 @@ const TodoList = () => {
         <Header as="h4">All Todos Completed!</Header>
       )}
 
-      <br />
-      <Divider horizontal>
-        <Header as="h3">
-          <Icon name="check square outline" />
-          Completed
-        </Header>
-      </Divider>
-      <ul>
-        {count[1] ? (
-          todosnew.map(todo => (
-            <DoneTodo id={todo.id} key={todo.id} {...todo} />
-          ))
-        ) : (
-          <Header as="h4">No Todos!</Header>
-        )}
-      </ul>
+      {count[1] ? (
+        <div style={{ paddingTop: "10px" }}>
+          <Divider horizontal>
+            <Header as="h3">
+              <Icon name="check square outline" />
+              Completed
+            </Header>
+          </Divider>
+          <ul>
+            {todosnew.map(todo => (
+              <DoneTodo id={todo.id} key={todo.id} {...todo} />
+            ))}
+          </ul>
+        </div>
+      ) : (
+        <br />
+      )}
     </div>
   );
 };

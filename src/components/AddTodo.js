@@ -3,6 +3,15 @@ import { connect } from "react-redux";
 import { addTodo } from "../action";
 import { Input } from "semantic-ui-react";
 
+const pushTask = (task, setTask, dispatch) => {
+  if (task) {
+    dispatch(addTodo(task));
+    setTask("");
+  } else {
+    alert("Please enter a valid task");
+  }
+};
+
 const AddTodo = ({ dispatch }) => {
   const [task, setTask] = useState("");
   return (
@@ -11,18 +20,14 @@ const AddTodo = ({ dispatch }) => {
         action={{
           content: "Add Todo",
           icon: "add",
-          onClick: () => {
-            dispatch(addTodo(task));
-            setTask("");
-          }
+          onClick: () => pushTask(task, setTask, dispatch)
         }}
         value={task}
         placeholder="Enter a Todo.."
         onChange={e => setTask(e.target.value)}
         onKeyPress={e => {
           if (e.key === "Enter") {
-            dispatch(addTodo(task));
-            setTask("");
+            pushTask(task, setTask, dispatch);
           }
         }}
       />

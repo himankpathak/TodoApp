@@ -9,7 +9,7 @@ const DoneTodo = ({ id, completed, text }) => {
   return completed ? (
     <li
       style={{
-        textAlignLast: "start",
+        textAlign: "left",
         textDecoration: completed ? "line-through" : "none",
         padding: "5px",
         fontSize: "1.25rem"

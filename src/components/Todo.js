@@ -9,7 +9,7 @@ const Todo = ({ id, completed, text }) => {
   return completed ? null : (
     <li
       style={{
-        textAlignLast: "start",
+        textAlign: "left",
         textDecoration: completed ? "line-through" : "none",
         padding: "5px",
         fontSize: "1.25rem"

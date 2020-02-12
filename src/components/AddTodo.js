@@ -4,7 +4,7 @@ import { addTodo } from "../action";
 import { Input } from "semantic-ui-react";
 
 const pushTask = (task, setTask, dispatch) => {
-  if (task) {
+  if (task.trim()) {
     dispatch(addTodo(task));
     setTask("");
   } else {

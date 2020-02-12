@@ -27,6 +27,7 @@ const Todo = ({ id, completed, text }) => {
 
 // PropTypes
 Todo.propTypes = {
+  id: PropTypes.number.isRequired,
   completed: PropTypes.bool.isRequired,
   text: PropTypes.string.isRequired
 };

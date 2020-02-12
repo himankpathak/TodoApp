@@ -1,9 +1,8 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Divider, Header, Icon } from "semantic-ui-react";
+import { useSelector } from "react-redux";
 
 import Todo from "./Todo";
-import { useSelector } from "react-redux";
 import DoneTodo from "./DoneTodo";
 
 const TodoList = () => {
@@ -47,17 +46,6 @@ const TodoList = () => {
       )}
     </div>
   );
-};
-
-TodoList.propTypes = {
-  todos: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      completed: PropTypes.bool.isRequired,
-      text: PropTypes.string.isRequired
-    }).isRequired
-  ).isRequired,
-  toggleTodo: PropTypes.func.isRequired
 };
 
 export default TodoList;

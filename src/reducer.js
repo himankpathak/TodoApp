@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO, REMOVE_TODO } from "./action";
+import { ADD_TODO, TOGGLE_TODO, REMOVE_TODO, REMOVE_ALL_TODO } from "./action";
 
 function mainReducer(state = [], action) {
   switch (action.type) {
@@ -30,10 +30,14 @@ function mainReducer(state = [], action) {
         ]
       });
     case REMOVE_TODO:
-      var arr = state.todos.filter(todo => todo.id !== action.index);
       return Object.assign({}, state, {
-        todos: arr,
+        todos: state.todos.filter(todo => todo.id !== action.index),
         count: [state.count[0], state.count[1] - 1]
+      });
+    case REMOVE_ALL_TODO:
+      return Object.assign({}, state, {
+        todos: state.todos.filter(todo => todo.completed === false),
+        count: [state.count[0], 0]
       });
     default:
       return state;

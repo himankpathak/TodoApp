@@ -5,18 +5,12 @@ import { Container, Header, Icon } from "semantic-ui-react";
 
 const App = () => {
   return (
-    <Container fluid style={{ padding: "10vw", paddingTop: "4vw" }}>
+    <Container fluid style={{ paddingBottom: "4vh", paddingTop: "4vh" }}>
       <Header as="h2" icon textAlign="center">
         <Icon name="code" circular />
         <Header.Content>Todo App</Header.Content>
       </Header>
-      <Container
-        fluid
-        style={{
-          textAlign: "center",
-          paddingLeft: "5vw",
-          paddingRight: "5vw"
-        }}>
+      <Container fluid style={{ textAlign: "center" }}>
         <AddTodo />
         <TodoList />
       </Container>

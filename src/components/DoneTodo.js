@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Button } from "semantic-ui-react";
+import { Button, Grid } from "semantic-ui-react";
 import { toggleTodo, removeTodo } from "../action";
 import { useDispatch } from "react-redux";
 
@@ -10,23 +10,34 @@ const DoneTodo = ({ id, completed, text }) => {
     <li
       style={{
         textAlign: "left",
+        wordBreak: "break-word",
         textDecoration: completed ? "line-through" : "none",
         padding: "5px",
         fontSize: "1.25rem"
       }}>
-      {text}
-      <Button
-        icon="arrow up"
-        circular
-        onClick={() => dispatch(toggleTodo(id, [1, -1]))}
-        style={{ marginLeft: "20px" }}
-      />
-      <Button
-        icon="cancel"
-        circular
-        onClick={() => dispatch(removeTodo(id))}
-        style={{ marginLeft: "20px" }}
-      />
+      <Grid columns={"equal"} verticalAlign={"middle"}>
+        <Grid.Column>{text}</Grid.Column>
+        <Grid.Column
+          mobile={7}
+          tablet={4}
+          computer={4}
+          style={{ padding: "12px" }}>
+          <Button
+            icon="cancel"
+            floated="right"
+            circular
+            onClick={() => dispatch(removeTodo(id))}
+            style={{ marginLeft: "10px" }}
+          />
+          <Button
+            icon="arrow up"
+            floated="right"
+            circular
+            onClick={() => dispatch(toggleTodo(id, [1, -1]))}
+            style={{ marginLeft: "10px" }}
+          />
+        </Grid.Column>
+      </Grid>
     </li>
   ) : null;
 };

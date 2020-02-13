@@ -1,15 +1,16 @@
 import React from "react";
-import { Divider, Header, Icon } from "semantic-ui-react";
-import { useSelector } from "react-redux";
-
+import { Divider, Header, Icon, Button } from "semantic-ui-react";
+import { useSelector, useDispatch } from "react-redux";
 import Todo from "./Todo";
 import DoneTodo from "./DoneTodo";
+import { removeAllTodo } from "../action";
 
 const TodoList = () => {
   const todosnew = useSelector(state => state.todos);
   const count = useSelector(state => state.count);
+  const dispatch = useDispatch();
   return (
-    <div style={{ paddingRight: "20vw", paddingLeft: "20vw" }}>
+    <div style={{ maxWidth: "600px", margin: "0 auto" }}>
       <Divider horizontal>
         <Header as="h3">
           <Icon name="pin" />
@@ -35,6 +36,18 @@ const TodoList = () => {
               Completed
             </Header>
           </Divider>
+
+          {count[1] > 1 ? (
+            <Button
+              animated="vertical"
+              onClick={() => dispatch(removeAllTodo())}>
+              <Button.Content visible>Clear All</Button.Content>
+              <Button.Content hidden>
+                <Icon name="cancel" />
+              </Button.Content>
+            </Button>
+          ) : null}
+
           <ul>
             {todosnew.map(todo => (
               <DoneTodo id={todo.id} key={todo.id} {...todo} />

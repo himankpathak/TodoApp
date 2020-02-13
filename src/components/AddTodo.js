@@ -29,6 +29,7 @@ const AddTodo = ({ dispatch }) => {
           icon: "add",
           onClick: () => pushTask(task, setTask, setErrorFlag, dispatch)
         }}
+        autoFocus
         value={task}
         error={errorFlag}
         placeholder="Enter a Todo.."
